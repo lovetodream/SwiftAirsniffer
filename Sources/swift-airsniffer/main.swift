@@ -2,7 +2,7 @@ import ArgumentParser
 import Foundation
 import PostgresClientKit
 
-struct Encode: ParsableCommand {
+struct Store: ParsableCommand {
     @Option(name: .long, help: "The url of the airsniffer without /?json.")
     var url = "http://airsniffer.local"
     
@@ -136,4 +136,4 @@ struct AirsnifferSysteminfo: Codable {
     }
 }
 
-Encode.main()
+Store.main()

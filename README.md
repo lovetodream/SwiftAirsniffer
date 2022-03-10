@@ -7,7 +7,7 @@ You can download the binary attached to each release. You can get the latest bin
 ## Usage
 
 ```sh
-USAGE: encode [--url <url>] [--host <host>] [--port <port>] [--ssl] [--database <database>] [--username <username>] [--password <password>]
+USAGE: store [--url <url>] [--host <host>] [--port <port>] [--ssl] [--database <database>] [--username <username>] [--password <password>]
 
 OPTIONS:
   --url <url>             The url of the airsniffer without /?json. (default: http://airsniffer.local)
