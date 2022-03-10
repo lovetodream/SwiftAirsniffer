@@ -1,6 +1,6 @@
 # swift-airsniffer
 
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/lovetodream/swift-airsniffer) ![Platform macOS](https://img.shields.io/badge/platform-macOS-blue) ![Platform linux](https://img.shields.io/badge/platform-linux-blue) ![swift-tools-version 5.5](https://img.shields.io/badge/swift--tools-5.5-orange)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/lovetodream/swift-airsniffer) ![Platform macOS](https://img.shields.io/badge/platform-macOS-blue) ![Platform linux](https://img.shields.io/badge/platform-linux-blue) ![swift-tools-version 5.5](https://img.shields.io/badge/swift--tools-5.5-orange) ![GitHub](https://img.shields.io/github/license/lovetodream/swift-airsniffer)
 
 A command line utility to send data from an [AirSniffer](https://www.stall.biz/project/der-airsniffer-schlechte-luft-kann-man-messen) to a Postgres database.
 
