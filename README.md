@@ -1,6 +1,6 @@
 # swift-airsniffer
 
-A command line utility to send data from an airsniffer to a Postgres database.
+A command line utility to send data from an [AirSniffer](https://www.stall.biz/project/der-airsniffer-schlechte-luft-kann-man-messen) to a Postgres database.
 
 You can download the binary attached to each release. You can get the latest binary [here](https://github.com/lovetodream/swift-airsniffer/releases/latest).
 
