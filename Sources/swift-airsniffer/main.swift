@@ -3,25 +3,25 @@ import Foundation
 import PostgresClientKit
 
 struct Encode: ParsableCommand {
-    @Option(name: .long, help: "The url of the airsniffer without /?json. Defaults to http://airsniffer.local")
+    @Option(name: .long, help: "The url of the airsniffer without /?json.")
     var url = "http://airsniffer.local"
     
-    @Option(name: .shortAndLong, help: "The hostname or IP address of the Postgres server. Defaults to localhost.")
+    @Option(name: .shortAndLong, help: "The hostname or IP address of the Postgres server.")
     var host = "localhost"
     
-    @Option(name: .long, help: "The port number of the Postgres server. Defaults to 5432.")
+    @Option(name: .long, help: "The port number of the Postgres server.")
     var port = 5432
     
-    @Flag(name: .shortAndLong, help: "Whether to use SSL/TLS to connect to the Postgres server. Defaults to false.")
+    @Flag(name: .shortAndLong, help: "Whether to use SSL/TLS to connect to the Postgres server.")
     var ssl = false
     
-    @Option(name: .shortAndLong, help: "The Postgres database. Defaults to airsniffer.")
+    @Option(name: .shortAndLong, help: "The Postgres database.")
     var database = "airsniffer"
     
-    @Option(name: .shortAndLong, help: "The Postgres username. Defaults to airsniffer.")
+    @Option(name: .shortAndLong, help: "The Postgres username.")
     var username = "airsniffer"
     
-    @Option(name: .shortAndLong, help: "The Postgres password. Defaults to password.")
+    @Option(name: .shortAndLong, help: "The Postgres password.")
     var password = "password"
     
     func run() throws {
