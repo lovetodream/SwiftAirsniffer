@@ -3,10 +3,10 @@ import Foundation
 import PostgresClientKit
 
 struct Store: ParsableCommand {
-    @Option(name: .long, help: "The url of the airsniffer without /?json.")
+    @Argument(help: "The url of the airsniffer without /?json.")
     var url = "http://airsniffer.local"
     
-    @Option(name: .shortAndLong, help: "The hostname or IP address of the Postgres server.")
+    @Option(name: .long, help: "The hostname or IP address of the Postgres server.")
     var host = "localhost"
     
     @Option(name: .long, help: "The port number of the Postgres server.")
@@ -26,8 +26,6 @@ struct Store: ParsableCommand {
     
     func run() throws {
         let sema = DispatchSemaphore(value: 0)
-        
-        print("Running swift-airsniffer")
         
         let task = URLSession.shared.dataTask(with: URL(string: "\(url)/?json")!) { data, response, error in
             if let error = error {

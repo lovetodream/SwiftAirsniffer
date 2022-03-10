@@ -7,11 +7,13 @@ You can download the binary attached to each release. You can get the latest bin
 ## Usage
 
 ```sh
-USAGE: store [--url <url>] [--host <host>] [--port <port>] [--ssl] [--database <database>] [--username <username>] [--password <password>]
+USAGE: store [<url>] [--host <host>] [--port <port>] [--ssl] [--database <database>] [--username <username>] [--password <password>]
+
+ARGUMENTS:
+  <url>                   The url of the airsniffer without /?json. (default: http://airsniffer.local)
 
 OPTIONS:
-  --url <url>             The url of the airsniffer without /?json. (default: http://airsniffer.local)
-  -h, --host <host>       The hostname or IP address of the Postgres server. (default: localhost)
+  --host <host>           The hostname or IP address of the Postgres server. (default: localhost)
   --port <port>           The port number of the Postgres server. (default: 5432)
   -s, --ssl               Whether to use SSL/TLS to connect to the Postgres server.
   -d, --database <database>
