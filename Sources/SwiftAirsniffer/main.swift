@@ -7,7 +7,7 @@ import PostgresClientKit
 
 struct Airsniffer: ParsableCommand {
     static var configuration = CommandConfiguration(
-            abstract: "A utility for performing maths.",
+            abstract: "A utility for performing actions with data provided by the AirSniffer.",
             subcommands: [Lametric.self, Store.self],
             defaultSubcommand: Store.self
     )

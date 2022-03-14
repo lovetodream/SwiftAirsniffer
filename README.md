@@ -9,7 +9,24 @@ You can download the binary attached to each release. You can get the latest bin
 ## Usage
 
 ```sh
-USAGE: store [<url>] [--host <host>] [--port <port>] [--ssl] [--database <database>] [--username <username>] [--password <password>]
+OVERVIEW: A utility for performing actions with data provided by the AirSniffer.
+
+USAGE: airsniffer <subcommand>
+
+OPTIONS:
+  -h, --help              Show help information.
+
+SUBCOMMANDS:
+  lametric
+  store (default)
+
+  See 'airsniffer help <subcommand>' for detailed help.
+```
+
+### store (default)
+
+```sh
+USAGE: airsniffer store [<url>] [--host <host>] [--port <port>] [--ssl] [--database <database>] [--username <username>] [--password <password>]
 
 ARGUMENTS:
   <url>                   The url of the airsniffer without /?json. (default: http://airsniffer.local)
@@ -24,6 +41,22 @@ OPTIONS:
                           The Postgres username. (default: airsniffer)
   -p, --password <password>
                           The Postgres password. (default: password)
+  -h, --help              Show help information.
+```
+
+### lametric
+
+```sh
+USAGE: airsniffer lametric [<url>] [<lametric>] [--access-token <access-token>]
+
+ARGUMENTS:
+  <url>                   The url of the airsniffer without /?json. (default: http://airsniffer.local)
+  <lametric>              The push-url of the Lametric Time (default:
+                          https://<ip-address>:4343/api/v1/dev/widget/update/com.lametric.bad002a8174dea4fbce93630df3e9afb/1)
+
+OPTIONS:
+  -a, --access-token <access-token>
+                          The Access Token to authenticate against the Lametric Time
   -h, --help              Show help information.
 ```
 
