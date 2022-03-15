@@ -156,38 +156,18 @@ extension Airsniffer {
                     } else {
                         icon = red
                     }
-                    
-                    var request = URLRequest(url: lametricURL)
-                    request.setValue(accessToken, forHTTPHeaderField: "X-Access-Token")
-                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    request.httpMethod = "POST"
-                    request.httpBody = """
-    {
-        "frames": [
-            {
-                "text": "\(writtenGrade.value.replacingOccurrences(of: "_", with: " "))",
-                "icon": \(icon),
-                "index": 0
-            }
-        ]
-    }
-    """.data(using: .utf8)
-                    
-                    let pushTask = URLSession.shared.dataTask(with: request) { data, response, error in
-                        if let error = error {
-                            print("🛑 \(error.localizedDescription)")
-                            DispatchSemaphore(value: 1).signal()
-                            return
-                        }
-                        
-                        if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                            print("✅ Successfully sent data to Lametric Time!")
-                        }
-                        
-                        sema.signal()
+
+                    do {
+                        try shellOut(to: "curl -k -X POST -H \"Accept: application/json\" -H \"X-Access-Token: \(accessToken)\" -H \"Cache-Control: no-cache\" -d '{\"frames\": [{\"text\": \"\(writtenGrade.value.replacingOccurrences(of: "_", with: " "))\",\"icon\": \(icon),\"index\": 0}]}' \(lametricURL)")
+                    } catch {
+                        let error = error as! ShellOutError
+                        print("🛑 \(error.message)")
+                        DispatchSemaphore(value: 1).signal()
+                        return
                     }
                     
-                    pushTask.resume()
+                    print("✅ Successfully sent data to Lametric Time!")
+                    sema.signal()
                 } catch {
                     print("🛑 \(error.localizedDescription)")
                     DispatchSemaphore(value: 1).signal()
