@@ -173,7 +173,7 @@ extension Airsniffer {
     }
     """.data(using: .utf8)
                     
-                    let pushTask = URLSession(configuration: .default, delegate: InsecureURLSessionDelegate(), delegateQueue: nil).dataTask(with: request) { data, response, error in
+                    let pushTask = URLSession.shared.dataTask(with: request) { data, response, error in
                         if let error = error {
                             print("🛑 \(error.localizedDescription)")
                             DispatchSemaphore(value: 1).signal()
@@ -256,14 +256,6 @@ struct AirsnifferSysteminfo: Codable {
         case WLANSignalDBM = "WLAN_Signal_dBm"
         case secondsSinceLastReset = "sec_seit_reset"
         case firmware
-    }
-}
-
-class InsecureURLSessionDelegate: NSObject, URLSessionDelegate {
-    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-       let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-
-       completionHandler(.useCredential, urlCredential)
     }
 }
 
